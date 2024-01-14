@@ -1,2 +1,2 @@
 # IASC-2P02
-Getting studious at windsor
+IASC-2P02 - Garrett Wager
