@@ -1,0 +1,25 @@
+body {
+    background-color: aqua;
+    color: brown;
+    margin: 0 auto;
+    width: fit-content;
+    text-align: left;
+}
+h1 {
+    font-size: 36px;
+}
+h2 {
+    font-size: 28px;
+}
+li {
+    font-size: 24px;
+    list-style-type: none;
+}
+a {
+    color: blue;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
