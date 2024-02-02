@@ -71,8 +71,8 @@ scene.add(testSphere)
 const torusGeometry = new THREE.TorusKnotGeometry()
 const torus = new THREE.Mesh(torusGeometry, material)
 
-//torus.position.z = -5
-//scene.add(torus)
+torus.position.z = -2
+scene.add(torus)
 
 /*********
  ** UI **
@@ -82,7 +82,9 @@ const ui = new dat.GUI()
 
 // UI Object
 const uiObject = {}
-uiObject.play = false  
+uiObject.play = false
+const uiTorus = {}
+uiTorus.play = false  
 
 // Plane UI
 const planeFolder = ui.addFolder('Plane')
@@ -105,6 +107,19 @@ sphereFolder
     .add(uiObject, 'play')
     .name('Animate sphere')  
 
+const torusFolder = ui.addFolder('Torus')
+
+torusFolder
+    .add(torus.position, 'y')
+    .min(-3)
+    .max(3)
+    .step(0.1)
+    .name('height')
+
+torusFolder
+    .add(uiTorus, 'play')
+    .name('Animate torus')
+
 /********************
  ** ANIMATION LOOP **
 *********************/
@@ -123,6 +138,11 @@ const animation = () =>
     if(uiObject.play)
     {
         testSphere.position.y = Math.sin(elapsedTime * 1) * 2
+        //torus.position.y = Math.sin(elapsedTime * 1) * 2
+    }
+    if(uiTorus.play)
+    {
+        torus.position.y = Math.sin(elapsedTime * 0.7) * 2
     }
 
     // Controls
