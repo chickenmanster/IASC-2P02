@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+    <title>Assignment 1</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- three.js importmap -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three":"https://ga.jspm.io/npm:three@0.160.1/build/three.module.js",
+                "OrbitControls": "https://ga.jspm.io/npm:three@0.160.1/examples/jsm/controls/OrbitControls.js",
+                "lil-gui": "https://ga.jspm.io/npm:lil-gui@0.19.1/dist/lil-gui.esm.js"
+            }
+        }
+    </script>
+
+    <script src="script.js" type="module"></script>
+</head>
+<body>
+    <h1>Interactive Essay</h1>
+    <h2>Garrett Wager</h2>
+
+    <!-- part one -->
+    <section id="part-one">
+        <h2>1. Flatness: The Lemon of Life</h2>
+
+        <p> In the beginning of time, the cave dwellers could only see the shadow of a Lemon on the wall. 
+            It was one long oval and two more ovals sticking out from either side of it. 
+            It was ominous and floated in the air on the cave wall, and the cave dwellers were intrigued by this odd shape. 
+        </p>
+        <p>
+            But then, all of a sudden, <span class="clickable" id="first-change">the Lemon began to open up,</span> 
+            and it looked like Two circles expanding and shrinking while a square, which was in the middle of the mystical 
+            object this whole time, spun in different directions when the circles consumed it. From the cave perspective, 
+            two hollow spheres expand and contract in the horizontal plane. 
+        </p>
+
+        <p> Suddenly, <span class="clickable" id="second-change">the Lemon began to move and disappear</span> 
+            on the cave wall until the cave became very dark. The people of the cave did not like this 
+            Lemon anymore because it made their cave dark and cold. 
+        </p>
+        <p>
+            The cave people think the Lemon of life rules their world, which projects itself on the cave wall. 
+            They believed a new seed was born each time the Lemon opened because it changed directions. 
+            The square inside of this Lemon is the seed of life. Because when life gives you a Lemon, you make lemonade, 
+            the cave dwellers decide that this must be the Lemon of life. 
+        </p>
+        <p>
+            The concept of flatness stems from naivety. 
+            It is the inability to comprehend multiple options outside of what someone already knows. 
+            Flatness is like the black-and-white cognitive bias. The bias is that someone thinks there are only 
+            two solutions to a problem without thinking about whether there can be more options in between. 
+            In the cave, the people inside do not see any option other than the word lemon/pencil expanding. 
+            They would never consider or understand a torus and plane being what is there because of the people's 
+            lack of outside references and knowledge to base their ideas and opinions on. Their perceptions of the 
+            world rely heavily on the literal one side of the equation and not the entire answer. 
+        </p>
+        <p>
+            The people of the cave only know about this Lemon orb and see a square. 
+            A lemon is considered a three-dimensional shape but not the outline of one. 
+            After changing into two overlapping spheres with a square inside, the Lemon became 
+            an object of interest for the cave people because of its unfamiliarity. 
+            They do not consider that it is a three-dimensional object that is spinning with a square inside it.
+        </p>
+   
+        <p><span class="clickable" id="continue-reading">Continue reading</span></p>
+    </section>
+
+    <!-- part 2 -->
+    <section id="part-two" class="hidden">
+        <h2>2. Seeing Double: The Real Evil</h2>
+
+        <p>Once the flatlanders finally escaped the cave, 
+            they joined the civilization with the answers and a different view on life: 
+            the people of <span class="clickable" id="third-change">a double world.</span> 
+            The cave wall was just one part of a larger story for these individuals.
+        </p>
+        <p>
+            They could see a three-dimensional torus spinning around with a plane inside it. 
+            The torus is why the lemon shadow appeared to be opening and closing from the cave's perspective. 
+            The plane flips and spins in different directions on the shadow. 
+        </p>
+        <p>
+            The people outside the cave see that the object casting the lemon-shaped shadow is the eye of Sauron from the Lord of the Rings. 
+            The eye is spinning because it is searching for the one who stole the ring of power. 
+            As the eye begins looking for the ring, <span class="clickable" id="fourth-change">Frodo destroys the ring in Mount Doom,</span> which illuminates the eye onto the cave wall. 
+            The volcano's light goes out as the eye slowly dies out. All heat and light from the surrounding area disappear, making the cave 
+            dwellers' lives cold and miserable, but the people outside are happy since Sauron is gone.
+        </p>
+        <p>
+            Seeing double is a way to describe objects in the second and third dimensions. 
+            Without the shadow and the object (2D), someone could not piece together both sides of the story. 
+            When we close one eye and open the other, we see one angle of the world. 
+            Looking through the sliver of a curtain with one eye is an example. 
+            The view from past the curtain changes completely from eye to eye. 
+            That is the concept of seeing double: a world shift from having access to multiple lenses.
+        </p>
+        <p>
+            Seeing double is apparent in politics. People outside the cave have different views than those inside the cave. 
+            They see that the eye of the Sauron is a multidimensional object that looks completely different from the lemon 
+            and that there is more than one possible truth to the situation.
+        </p>
+        <p>
+            The two-dimensional view is restricted because they are only able to see essentially half of the truth, 
+            while the view outside of the cave in 3D is more telling of what is going on. The view from the outside 
+            reveals more of the truth about how the people inside the cave see the world.  
+        </p>
+        <p>
+            They both see the flat shadow cast on the wall, but the 3ders notice how that shadow is only an effect, not the object itself. 
+            Shadows form with the combination of light and a multidimensional object. 
+            A hard truth only understood from seeing double is that objects cannot be two-dimensional because they are only effects created by three-dimensional objects. 
+            Therefore, the round world is superior because of the extended context given by multiple dimensions and angles.
+        </p>
+    
+        <p><span class="clickable" id="restart">Restart</span></p>
+    </section>
+
+    <canvas class="webgl"></canvas>
+</body>

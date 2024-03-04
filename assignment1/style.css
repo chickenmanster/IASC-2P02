@@ -1,0 +1,45 @@
+body {
+    width: 40%;
+    color: white;
+    margin-left: 5%;
+    text-shadow: 0.5px 0.5px 1px #fff;
+}
+
+h1 {
+    color: white;
+    font-size: 48px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    /*text-align: center;*/
+}
+
+p {
+    font-size: 23px;
+    margin-bottom: 24px;
+}
+
+.clickable {
+    color: aqua;
+    cursor: grab;
+}
+
+.clickable:hover {
+    color: #f00;
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+.webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+    z-index: -1;
+    background-color: black;
+}
