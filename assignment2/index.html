@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <title>Data Visualization</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- three.js importmap -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three":"https://ga.jspm.io/npm:three@0.160.1/build/three.module.js",
+                "OrbitControls": "https://ga.jspm.io/npm:three@0.160.1/examples/jsm/controls/OrbitControls.js",
+                "lil-gui": "https://ga.jspm.io/npm:lil-gui@0.19.1/dist/lil-gui.esm.js"
+            }
+        }
+    </script>
+
+    <!-- Dataviz 1 -->
+    <script src="script.js" type="module"></script>
+    
+    <!-- Dataviz 2 -->
+    <script src="script2.js" type="module"></script>
+</head>
+<body>
+    <h1>My Awesome TItle</h1>
+    <h2>Garrett Wager</h2>
+
+    <p>Bacon ipsum dolor amet meatloaf ham hock pork alcatra tongue jowl. Flank filet mignon ground round chuck, ball tip ribeye picanha jowl leberkas boudin fatback. Ground round beef ribs boudin, shank prosciutto tenderloin shankle short loin pastrami chicken bresaola frankfurter. Short ribs tri-tip chicken capicola ham hock shank bresaola venison rump chislic. Kevin jerky turducken venison. Ground round beef alcatra venison jerky beef ribs swine tri-tip salami turducken.</p>
+
+    <p>Burgdoggen drumstick turducken meatball beef. Drumstick pastrami pancetta pork belly jerky bresaola. Pig venison hamburger landjaeger biltong spare ribs, ball tip chislic jowl beef ribs leberkas. Rump chislic leberkas short ribs, fatback pork chop doner boudin cow alcatra pork belly hamburger chicken ball tip.</p>
+
+    <!-- dataviz 1 -->
+    
+    <div class="canvas-container">
+        <h2>Objects in Harry Potter</h2>
+        <!--
+        <ul>
+            <li id="red">Cupboard</li>
+            <li id="green">Hat</li>
+            <li id="blue">Broom</li>
+        </ul>
+        -->
+        <!-- canvas -->
+        <canvas class="webgl"></canvas>
+        <div id="parent1"></div>
+        <p>Left click and drag to rotate. Right click and drag to move. Scroll to zoom.</p>
+    </div>
+    
+    <p>Tail capicola picanha, brisket chislic t-bone meatloaf drumstick pancetta short loin porchetta pastrami boudin. T-bone pork belly drumstick chicken, biltong doner swine strip steak jowl ham. Swine kielbasa salami, turkey frankfurter ham hock chislic flank pastrami jerky. Capicola bresaola doner drumstick, sausage kielbasa beef landjaeger jowl ham hock short ribs porchetta. Pastrami pancetta ground round, salami tongue shoulder prosciutto sausage turkey brisket kevin jowl leberkas kielbasa. Kevin meatball turkey kielbasa, shankle burgdoggen filet mignon pastrami cow corned beef tri-tip sausage alcatra boudin.</p>
+
+    <p>Tenderloin salami sausage prosciutto t-bone swine. Ribeye shankle tongue pork. Shank shankle ham hamburger filet mignon. Hamburger t-bone ham hock filet mignon. Tenderloin corned beef meatloaf prosciutto, picanha biltong shankle.</p>
+
+    <!-- dataviz 2 -->
+
+    <div class="canvas-container">
+        <h2>Something else in Harry Potter</h2>
+        <!--
+        <ul>
+            <li id="red">Cupboard</li>
+            <li id="green">Hat</li>
+            <li id="blue">Broom</li>
+        </ul>
+        -->
+        <!-- canvas -->
+        <canvas class="webgl2"></canvas>
+        <div id="parent2"></div>
+        <p>Left click and drag to rotate. Right click and drag to move. Scroll to zoom.</p>
+    </div>
+    
+    <p>Brisket pork loin strip steak ribeye meatloaf boudin drumstick burgdoggen andouille meatball cupim tri-tip picanha. Pork landjaeger ball tip capicola, ribeye venison turducken doner spare ribs beef ribs pig alcatra pastrami meatball. Hamburger pork belly leberkas brisket chicken pastrami cupim, frankfurter beef ribs spare ribs pig. Chicken cupim filet mignon salami, tenderloin ground round pork belly beef shank tongue landjaeger pork alcatra picanha. Bacon cow bresaola brisket, spare ribs fatback boudin filet mignon pork chop meatball ham hock ball tip shankle porchetta doner. Porchetta jowl landjaeger frankfurter doner cupim fatback turducken chuck corned beef beef short ribs. Cow shank beef ribs ribeye chicken venison turkey flank shoulder ham cupim tail.</p>
+
+</body>
