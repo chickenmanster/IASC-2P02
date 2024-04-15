@@ -20,9 +20,7 @@ const canvas = document.querySelector('.webgl')
 
 // Scene
 const scene = new THREE.Scene()
-//scene.background = new THREE.Color('rgb(255,83,73)')
-const loader = new THREE.TextureLoader().load( 'city.jpg' );
-scene.background = loader;
+scene.background = new THREE.Color('gray')
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
@@ -31,7 +29,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     100
 )
-camera.position.set(0, 0, 25)
+camera.position.set(0, 0, 20)
 scene.add(camera)
 
 // Renderer
@@ -55,36 +53,32 @@ scene.add(directionalLight)
 /***********
 ** MESHES **
 ************/
-//const torus = new THREE.Mesh( geometry, material );  
-// Torus Geometry
-const coneGeometry = new THREE.ConeGeometry( 0.75, 1.25, 20 ); 
+// Cube Geometry
+const cubeGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5)
 
 // Cube Materials
 const redMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color('rgb(140, 85, 2)'),
-    side: THREE.DoubleSide
+    color: new THREE.Color('red')
 })
 const greenMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color('rgb(22, 233, 22)'),
-    side: THREE.DoubleSide
+    color: new THREE.Color('green')
 })
 const blueMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color('rgb(69, 119, 255)'),
-    side: THREE.DoubleSide
+    color: new THREE.Color('blue')
 })
 
-const drawCone = (i, material) =>
+const drawCube = (i, material) =>
 {
-    const cone = new THREE.Mesh( coneGeometry, material );
-    cone.position.x = (Math.random() - 0.5) * 10
-    cone.position.z = (Math.random() - 0.5) * 10
-    cone.position.y = i - 10
+    const cube = new THREE.Mesh(cubeGeometry, material)
+    cube.position.x = (Math.random() - 0.5) * 10
+    cube.position.z = (Math.random() - 0.5) * 10
+    cube.position.y = i - 10
 
-    cone.rotation.x = Math.random() * 2 * Math.PI
-    cone.rotation.y = Math.random() * 2 * Math.PI
-    cone.rotation.z = Math.random() * 2 * Math.PI
+    cube.rotation.x = Math.random() * 2 * Math.PI
+    cube.rotation.y = Math.random() * 2 * Math.PI
+    cube.rotation.z = Math.random() * 2 * Math.PI
 
-    scene.add(cone)
+    scene.add(cube)
 }
 
 
@@ -96,13 +90,15 @@ let preset = {}
 const uiobj = {
     text: '',
     textArray: [],
-    term1: 'monkeys',
-    term2: 'wizard',
-    term3: 'munchkins',
+    term1: 'forest',
+    term2: 'castle',
+    term3: 'west',
     rotateCamera: false,
+    
 }
 
 // Text Parsers
+
 
 // Parse Text and Terms
 const parseTextandTerms = () =>
@@ -140,7 +136,7 @@ const findTermInParsedText = (term, material) =>
          // call drawCube function 5 times using converted n value
          for(let a=0; a < 5; a++)
          {
-            drawCone(n, material)
+            drawCube(n, material)
          }
 
         }

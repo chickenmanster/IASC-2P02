@@ -20,7 +20,8 @@ const canvas = document.querySelector('.webgl2')
 
 // Scene
 const scene = new THREE.Scene()
-scene.background = new THREE.Color('gray')
+const loader = new THREE.TextureLoader().load( 'kansas.png' );
+scene.background = loader;
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
@@ -53,36 +54,38 @@ scene.add(directionalLight)
 /***********
 ** MESHES **
 ************/
+
 // Cube Geometry
-const sphereGeometry = new THREE.SphereGeometry(0.5)
+
+//const heartGeometry = new THREE.ShapeGeometry( heartShape );
+const cylinderGeometry = new THREE.CylinderGeometry( 0.5, 0.5, 0.1, 60 ); 
 
 // Cube Materials
 const orangeMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color('orange')
+    color: new THREE.Color('darkorange')
 })
 const pinkMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color('pink')
+    color: new THREE.Color('silver')
 })
 const aquaMaterial = new THREE.MeshStandardMaterial({
-    color: new THREE.Color('aqua')
+    color: new THREE.Color('maroon')
 })
 
-const drawSphere = (i, material) =>
+const drawCylinder = (i, material) =>
 {
-    const sphere = new THREE.Mesh(sphereGeometry, material)
-    sphere.position.x = (Math.random() - 0.5) * 10
-    sphere.position.z = (Math.random() - 0.5) * 10
-    sphere.position.y = i - 10
+    const cylinder = new THREE.Mesh(cylinderGeometry, material)
+    cylinder.position.x = (Math.random() - 0.5) * 10// * (Math.tan(0) * 20)
+    cylinder.position.z = (Math.random() - 0.5) * 10// * (Math.tan(0) * 20)
+    cylinder.position.y = (i - 10)
 
-    sphere.rotation.x = Math.random() * 2 * Math.PI
-    sphere.rotation.y = Math.random() * 2 * Math.PI
-    sphere.rotation.z = Math.random() * 2 * Math.PI
+    cylinder.rotation.x = Math.random() * 2 * Math.PI
+    cylinder.rotation.y = Math.random() * 2 * Math.PI
+    cylinder.rotation.z = Math.random() * 2 * Math.PI
 
-    sphere.randomizer = Math.random()
+    cylinder.randomizer = Math.random()
 
-    scene.add(sphere)
+    scene.add(cylinder)
 }
-
 
 /**********************
 ** TEXT PARSERS & UI **
@@ -92,11 +95,11 @@ let preset = {}
 const uiobj = {
     text: '',
     textArray: [],
-    term1: 'dudley',
-    term2: 'snape',
-    term3: 'malfoy',
+    term1: 'courage',
+    term2: 'heart',
+    term3: 'brains',
     rotateCamera: false,
-    animateBubbles: false
+    animateCoins: false
 }
 
 // Text Parsers
@@ -138,7 +141,7 @@ const findTermInParsedText = (term, material) =>
          // call drawCube function 5 times using converted n value
          for(let a=0; a < 5; a++)
          {
-            drawSphere(n, material)
+            drawCylinder(n, material)
          }
 
         }
@@ -146,7 +149,7 @@ const findTermInParsedText = (term, material) =>
 }
 
 // Load source text
-fetch("https://raw.githubusercontent.com/amephraim/nlp/master/texts/J.%20K.%20Rowling%20-%20Harry%20Potter%204%20-%20The%20Goblet%20of%20Fire.txt")
+fetch("https://raw.githubusercontent.com/kwartler/text_mining/master/Wizard_Of_Oz.txt")
     .then(response => response.text())
     .then((data) =>
     {
@@ -163,28 +166,28 @@ const ui = new dat.GUI({
 
 // Interaction Folders
     // Cubes Folder
-    const spheresFolder = ui.addFolder('Filter Terms')
+    const heartFolder = ui.addFolder('Filter Terms')
 
-    spheresFolder
+    heartFolder
         .add(orangeMaterial, 'visible')
         .name(`${uiobj.term1}`)
 
-    spheresFolder
+    heartFolder
         .add(pinkMaterial, 'visible')
         .name(`${uiobj.term2}`)
 
-    spheresFolder
+    heartFolder
         .add(aquaMaterial, 'visible')
         .name(`${uiobj.term3}`)
-
-    spheresFolder
-        .add(uiobj, 'animateBubbles')
-        .name('Animate Bubbles')
 
     // Camera Folder
     const cameraFolder = ui.addFolder('Camera')
 
     cameraFolder
+        .add(uiobj, 'animateCoins')
+        .name('Animate Coins')
+
+    /*cameraFolder
         .add(uiobj, 'rotateCamera')
         .name('Rotate Camera')
 
@@ -204,22 +207,41 @@ const animation = () =>
     controls.update()
 
     // Camera Rotation
-    if(uiobj.rotateCamera)
+   /* if(uiobj.rotateCamera)
     {
-        camera.position.x = Math.sin(elapsedTime * 0.2) * 16
-        camera.position.z = Math.cos(elapsedTime * 0.2) * 16
-    }
+        
+    }*/
 
-    //animate bubbles
-    if(uiobj.animateBubbles){   
-        for(let i=0; i < scene.children.length; i++)
-        {
-            if(scene.children[i].type === "Mesh")
+    //animate hearts
+    if(uiobj.animateCoins){   
+        if (elapsedTime < 8) {
+            for(let i=0; i < scene.children.length; i++)
             {
-                scene.children[i].scale.x = Math.sin(elapsedTime * scene.children[i].randomizer)
-                scene.children[i].scale.y = Math.sin(elapsedTime * scene.children[i].randomizer)
-                scene.children[i].scale.z = Math.sin(elapsedTime * scene.children[i].randomizer)
+                if(scene.children[i].type === "Mesh")
+                {
+                    scene.children[i].rotation.x = (Math.random(elapsedTime * scene.children[i].randomizer) - 0.5) * 10
+                    scene.children[i].rotation.y = (Math.random(elapsedTime * scene.children[i].randomizer) - 0.5) * 10
+                    scene.children[i].rotation.z = (Math.random(elapsedTime * scene.children[i].randomizer) - 0.5) * 10
+                    scene.children[i].position.x = elapsedTime*(Math.random() - 0.5)// * (Math.tan(0) * 20)
+                    scene.children[i].position.z = elapsedTime*(Math.random() - 0.5)
+                }
             }
+            camera.position.x = Math.sin(elapsedTime * 2) * 16
+            camera.position.z = Math.cos(elapsedTime * 2) * 16
+        } else {
+            for(let i=0; i < scene.children.length; i++)
+            {
+                if(scene.children[i].type === "Mesh")
+                {
+                    scene.children[i].rotation.x = Math.cos(elapsedTime * scene.children[i].randomizer) * 2
+                    scene.children[i].rotation.y = Math.cos(elapsedTime * scene.children[i].randomizer) * 2
+                    scene.children[i].rotation.z = Math.cos(elapsedTime * scene.children[i].randomizer) * 2
+                    //scene.children[i].position.x = elapsedTime*(Math.random() - 0.5)// * (Math.tan(0) * 20)
+                    //scene.children[i].position.z = elapsedTime*(Math.random() - 0.5)
+                }
+            }
+            camera.position.x = Math.sin(elapsedTime * 0.2) * 16
+            camera.position.z = Math.cos(elapsedTime * 0.2) * 16
         }
     }
 

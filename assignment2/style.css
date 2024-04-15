@@ -2,7 +2,30 @@ body {
     margin: 0 auto;
     width: 80%;
     font-family:Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right, rgb(243, 57, 113), rgb(102, 17, 166));
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
+#div {
+    background-color: rgba(240, 248, 255, 0.53);
+    padding: 2%;
+    border-radius: 50px;
+    width: 75%;
+    position: center;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.div2 {
+    background: rgb(190, 9, 9);
+    color: antiquewhite;
+    padding: 2%;
+    border-radius: 50px;
+    width: 50%;
+    margin-left: 25%;
+}
+
 p {
     font-size: 18px;
 }
@@ -19,8 +42,9 @@ h2{
 }
 
 .webgl {
-    width: 50%;
+    width:fit-content;
 }
+
 
 /* Canvas */
 .canvas-container {
@@ -45,15 +69,15 @@ ul > li {
 }
 
 #red {
-    color: red;
+    color: rgb(140, 85, 2);
 }
 
 #green {
-    color: green;
+    color: rgb(22, 233, 22);
 }
 
 #blue {
-    color: blue;
+    color: rgb(69, 119, 255);
 }
 
 #orange {
@@ -81,15 +105,15 @@ ul > li {
 }
 
 #lil-gui-name-1 {
-    color: red;
+    color: rgb(140, 85, 2);
 }
 
 #lil-gui-name-2 {
-    color: green;
+    color: rgb(22, 233, 22);
 }
 
 #lil-gui-name-3 {
-    color: blue;
+    color: rgb(69, 119, 255);
 }
 
 #lil-gui-name-5 {
@@ -97,9 +121,9 @@ ul > li {
 }
 
 #lil-gui-name-6 {
-    color: pink;
+    color: silver;
 }
 
 #lil-gui-name-7 {
-    color: aqua;
+    color: maroon;
 }   
